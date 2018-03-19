@@ -1,6 +1,7 @@
 {
   "name": "scheduler",
   "version": "0.1.0",
+  "homepage": "https://stfnh.github.io/scheduler",
   "private": true,
   "dependencies": {
     "bootstrap": "4.0.0",

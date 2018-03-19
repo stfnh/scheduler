@@ -43,7 +43,6 @@ class App extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(this.state);
     const { date, participant } = this.state;
     const scheduleDays = [0, 1, 2, 7, 14, 21, 28, 56, 84, 112, 140, 168];
     const scheduledDates = scheduleDays.map((d, i) => {
@@ -55,7 +54,6 @@ class App extends Component {
         end: setHours(eventDate, 15)
       };
     });
-    console.log(scheduledDates);
     this.setState({ scheduledDates, showScheduledDates: true });
   }
 
@@ -69,7 +67,7 @@ class App extends Component {
             <Input
               type="text"
               name="participant"
-              placeholder="participant #"
+              placeholder="Participant name or study number"
               value={this.state.participant}
               onChange={this.handleParticipantChange}
               required
@@ -80,7 +78,7 @@ class App extends Component {
             <Input
               type="date"
               name="start"
-              placeholder="start date"
+              placeholder="MM/DD/YYYY"
               value={this.state.date}
               onChange={this.handleDateChange}
               required
@@ -96,7 +94,7 @@ class App extends Component {
             <BigCalendar
               events={this.state.scheduledDates}
               defaultDate={new Date()}
-              views={['month', 'agenda']}
+	      views={['month']}
             />
             <Button onClick={this.toggle} color="primary" >Publish to Google Calendar</Button>
           </div>
